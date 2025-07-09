@@ -13,9 +13,13 @@ lerna-debug.log*
 .env.production.local
 .env.*.local
 
-# SSL certificates (keep ssl/ folder but ignore cert files if they contain sensitive data)
-# ssl/*.pem
-# Uncomment the line above if you want to ignore SSL certificates
+# SSL certificates and keys (security sensitive)
+ssl/
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
 
 # Runtime data
 pids/

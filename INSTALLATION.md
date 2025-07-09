@@ -31,11 +31,26 @@ cp .env.example .env
 # Nota: Las variables por defecto funcionan para desarrollo local
 ```
 
-### 4. Verificar certificados SSL
+### 4. Configurar certificados SSL
 
-Los certificados SSL autofirmados ya están incluidos en el directorio `ssl/`. Para desarrollo local, estos certificados son suficientes.
+Los certificados SSL se generan automáticamente la primera vez que ejecutas la aplicación.
 
-Para producción, reemplaza los archivos `ssl/cert.pem` y `ssl/key.pem` con certificados válidos.
+**Para desarrollo local:**
+- Los certificados se crean automáticamente en `ssl/`
+- Son certificados autofirmados válidos para `localhost`
+
+**Para certificados personalizados:**
+```bash
+# Usando OpenSSL
+openssl genrsa -out ssl/key.pem 2048
+openssl req -new -x509 -key ssl/key.pem -out ssl/cert.pem -days 365
+
+# Usando mkcert (recomendado)
+mkcert -install
+mkcert -key-file ssl/key.pem -cert-file ssl/cert.pem localhost 127.0.0.1
+```
+
+**Para producción:** Reemplaza los archivos con certificados válidos de una CA.
 
 ## 🏃‍♂️ Ejecución
 
@@ -112,11 +127,26 @@ docker run -p 3443:3443 api-par-impar
 
 ### Configuración SSL
 
-Para usar certificados personalizados:
+Los certificados SSL se generan automáticamente si no existen:
 
-1. Reemplaza `ssl/cert.pem` con tu certificado
-2. Reemplaza `ssl/key.pem` con tu clave privada
-3. Reinicia la aplicación
+1. **Automático**: Al ejecutar `npm start`, se crean certificados temporales
+2. **Manual**: Coloca tus certificados en `ssl/cert.pem` y `ssl/key.pem`
+3. **Producción**: Usa certificados válidos de Let's Encrypt, Cloudflare, etc.
+
+**Generar certificados manualmente:**
+```bash
+# Crear directorio si no existe
+mkdir ssl
+
+# Opción 1: OpenSSL
+openssl genrsa -out ssl/key.pem 2048
+openssl req -new -x509 -key ssl/key.pem -out ssl/cert.pem -days 365 \
+  -subj "/C=ES/ST=Madrid/L=Madrid/O=Dev/CN=localhost"
+
+# Opción 2: mkcert (más fácil)
+mkcert -install
+mkcert -key-file ssl/key.pem -cert-file ssl/cert.pem localhost 127.0.0.1
+```
 
 ### Base de Datos
 
