@@ -1,7 +1,7 @@
 {
   "name": "api-par-impar",
   "version": "1.0.0",
-  "description": "",
+  "description": "API para determinar si un número es par o impar implementada con Clean Architecture en Node.js/Express",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -12,12 +12,60 @@
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watch",
     "test:unit": "jest tests/unit",
-    "test:integration": "jest tests/integration"
+    "test:integration": "jest tests/integration",
+    "test:e2e": "jest tests/e2e",
+    "lint": "echo 'ESLint not configured yet'",
+    "lint:fix": "echo 'ESLint fix not configured yet'",
+    "format": "echo 'Prettier not configured yet'",
+    "docs:generate": "echo 'JSDoc generation not configured yet'",
+    "docs:check": "echo 'Documentation link checker not configured yet'",
+    "build": "echo 'Build process not needed for Node.js'",
+    "clean": "rm -rf coverage/ docs/generated/ tmp/",
+    "health": "curl -k https://localhost:3443/api/parity/health",
+    "demo": "node scripts/demo.js",
+    "setup": "npm install && echo 'Setup complete! Run npm start to begin.'"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "api",
+    "rest",
+    "nodejs",
+    "express",
+    "clean-architecture",
+    "onion-architecture",
+    "hexagonal-architecture",
+    "domain-driven-design",
+    "ddd",
+    "parity",
+    "even",
+    "odd",
+    "mathematics",
+    "ssl",
+    "https",
+    "swagger",
+    "openapi",
+    "jest",
+    "tdd",
+    "repository-pattern",
+    "dependency-injection"
+  ],
+  "author": {
+    "name": "SKANL",
+    "url": "https://github.com/SKANL"
+  },
+  "license": "MIT",
   "type": "commonjs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SKANL/api-par-impar.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SKANL/api-par-impar/issues"
+  },
+  "homepage": "https://github.com/SKANL/api-par-impar#readme",
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
   "dependencies": {
     "@scalar/express-api-reference": "^0.8.9",
     "express": "^5.1.0",
@@ -39,6 +87,18 @@
       "!src/**/*.spec.js"
     ],
     "coverageDirectory": "coverage",
-    "coverageReporters": ["text", "lcov", "html"]
+    "coverageReporters": ["text", "lcov", "html"],
+    "testMatch": [
+      "**/tests/**/*.test.js",
+      "**/tests/**/*.spec.js"
+    ],
+    "collectCoverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": 80
+      }
+    }
   }
 }

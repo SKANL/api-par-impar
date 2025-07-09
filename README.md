@@ -1,4 +1,11 @@
-los # API Par/Impar - Clean Architecture
+# 🎯 API Par/Impar - Clean Architecture
+
+[![Node.js](https://img.shields.io/badge/Node.js-14+-green.svg)](https://nodejs.org/)
+[![Express](https://img.shields.io/badge/Express-4.x-blue.svg)](https://expressjs.com/)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Architecture](https://img.shields.io/badge/Architecture-Clean%20%7C%20Onion-brightgreen.svg)](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
+
+**🔗 Repository:** [https://github.com/SKANL/api-par-impar](https://github.com/SKANL/api-par-impar)
 
 Una API REST desarrollada con Node.js y Express que implementa la arquitectura ONION (Clean Architecture) para determinar si un número es par o impar.
 

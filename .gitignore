@@ -3,6 +3,7 @@ node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+lerna-debug.log*
 
 # Environment variables
 .env
@@ -10,13 +11,11 @@ yarn-error.log*
 .env.development.local
 .env.test.local
 .env.production.local
+.env.*.local
 
 # SSL certificates (keep ssl/ folder but ignore cert files if they contain sensitive data)
 # ssl/*.pem
-
-# Logs
-logs/
-*.log
+# Uncomment the line above if you want to ignore SSL certificates
 
 # Runtime data
 pids/
@@ -24,18 +23,40 @@ pids/
 *.seed
 *.pid.lock
 
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
 # Coverage directory used by tools like istanbul
 coverage/
 *.lcov
-
-# nyc test coverage
-.nyc_output
+.nyc_output/
 
 # Dependency directories
+node_modules/
 jspm_packages/
+
+# TypeScript cache
+*.tsbuildinfo
 
 # Optional npm cache directory
 .npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional stylelint cache
+.stylelintcache
+
+# Microbundle cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
 
 # Optional REPL history
 .node_repl_history
@@ -46,21 +67,47 @@ jspm_packages/
 # Yarn Integrity file
 .yarn-integrity
 
+# dotenv environment variables file
+.env
+.env.test
+.env.production
+
 # parcel-bundler cache (https://parceljs.org/)
 .cache
 .parcel-cache
 
-# next.js build output
+# Next.js build output
 .next
+out/
 
-# nuxt.js build output
+# Nuxt.js build / generate output
 .nuxt
+dist/
 
-# vuepress build output
+# Gatsby files
+.cache/
+public/
+
+# Vue.js build output
+dist/
+
+# Vuepress build output
 .vuepress/dist
 
 # Serverless directories
-.serverless
+.serverless/
+
+# FuseBox cache
+.fusebox/
+
+# DynamoDB Local files
+.dynamodb/
+
+# TernJS port file
+.tern-port
+
+# Stores VSCode versions used for testing VSCode extensions
+.vscode-test
 
 # IDE files
 .vscode/
@@ -78,6 +125,68 @@ jspm_packages/
 ehthumbs.db
 Thumbs.db
 
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Linux
+*~
+
 # Temporary files
 tmp/
 temp/
+*.tmp
+*.temp
+
+# Application specific
+dist/
+build/
+.cache/
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Backup files
+*.bak
+*.backup
+
+# Lock files (keep package-lock.json)
+# yarn.lock
+
+# Documentation generated files
+docs/generated/
+
+# Test output
+test-results/
+test-output/
+
+# Benchmark results
+benchmark-results/
+
+# Profiling results
+profile-results/
+
+# Local configuration
+config/local.json
+config/development.json
+config/production.json
+
+# Secrets and keys (be careful with SSL certs)
+secrets/
+keys/
+# ssl/private/
